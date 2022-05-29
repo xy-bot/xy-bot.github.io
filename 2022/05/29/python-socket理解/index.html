@@ -20,28 +20,37 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="xy-bot">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="socket所谓套接字(Socket)，就是对网络中不同主机上的应用进程之间进行双向通信的端点的抽象。一个套接字就是网络上进程通信的一端，提供了应用层进程利用网络协议交换数据的机制。从所处的地位来讲，套接字上联应用进程，下联网络协议栈，是应用程序通过网络协议进行通信的接口，是应用程序与网络协议栈进行交互的接口。 创建socket方式普通创建1234567891011121314socket.soc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python socket理解">
+<meta property="og:url" content="http://example.com/2022/05/29/python-socket%E7%90%86%E8%A7%A3/index.html">
 <meta property="og:site_name" content="xy-bot">
+<meta property="og:description" content="socket所谓套接字(Socket)，就是对网络中不同主机上的应用进程之间进行双向通信的端点的抽象。一个套接字就是网络上进程通信的一端，提供了应用层进程利用网络协议交换数据的机制。从所处的地位来讲，套接字上联应用进程，下联网络协议栈，是应用程序通过网络协议进行通信的接口，是应用程序与网络协议栈进行交互的接口。 创建socket方式普通创建1234567891011121314socket.soc">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img2022.cnblogs.com/blog/2850640/202204/2850640-20220429103232761-19348255.webp">
+<meta property="og:image" content="https://img2022.cnblogs.com/blog/2850640/202204/2850640-20220429103125732-751616889.png">
+<meta property="og:image" content="https://img2022.cnblogs.com/blog/2850640/202204/2850640-20220429103449922-1468225405.png">
+<meta property="article:published_time" content="2022-05-29T08:59:23.000Z">
+<meta property="article:modified_time" content="2022-05-29T09:00:48.455Z">
 <meta property="article:author" content="xy">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img2022.cnblogs.com/blog/2850640/202204/2850640-20220429103232761-19348255.webp">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2022/05/29/python-socket%E7%90%86%E8%A7%A3/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>xy-bot</title>
+  <title>python socket理解 | xy-bot</title>
   
 
 
@@ -153,9 +162,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -171,10 +181,9 @@
       <meta itemprop="name" content="xy-bot">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/05/29/python-socket%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">python socket理解</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          python socket理解
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -207,7 +216,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="socket"><a href="#socket" class="headerlink" title="socket"></a>socket</h2><p>所谓套接字(Socket)，就是对网络中不同主机上的应用进程之间进行双向通信的端点的抽象。一个套接字就是网络上进程通信的一端，提供了应用层进程利用网络协议交换数据的机制。从所处的地位来讲，套接字上联应用进程，下联网络协议栈，是应用程序通过网络协议进行通信的接口，是应用程序与网络协议栈进行交互的接口。</p>
+        <h2 id="socket"><a href="#socket" class="headerlink" title="socket"></a>socket</h2><p>所谓套接字(Socket)，就是对网络中不同主机上的应用进程之间进行双向通信的端点的抽象。一个套接字就是网络上进程通信的一端，提供了应用层进程利用网络协议交换数据的机制。从所处的地位来讲，套接字上联应用进程，下联网络协议栈，是应用程序通过网络协议进行通信的接口，是应用程序与网络协议栈进行交互的接口。</p>
 <h3 id="创建socket方式"><a href="#创建socket方式" class="headerlink" title="创建socket方式"></a>创建socket方式</h3><h4 id="普通创建"><a href="#普通创建" class="headerlink" title="普通创建"></a>普通创建</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">socket.socket(family=-1, type=-1, proto=-1, fileno=None):</span><br><span class="line">	family: 地址族：</span><br><span class="line">		AF_UNIX:unix本机通信</span><br><span class="line">		AF_INET: 默认值,ipv4</span><br><span class="line">		AF_INET6: 当程序使用到ipv6时使用</span><br><span class="line">	type: 套接字类型</span><br><span class="line">		SOCK_STREAM：默认值；基于tcp,可靠传输，适用于对消息内容要求的情况，例如文件下载等</span><br><span class="line">		SOCK_DGRAM：基于udp，广播消息，适用于对消息内容不是太准确的情况，例如视频通话、直播等</span><br><span class="line">		SOCK_RAW：</span><br><span class="line">	proto: 协议号编号</span><br><span class="line">		协议编号通常为零，可以省略，</span><br><span class="line">		或者在地址系列为AF_CAN的情况下，协议应为CAN_RAW、CAN_BCM、CAN_ISOTP或CAN_J1939之一。</span><br><span class="line">	fileno: 指定文件描述符</span><br><span class="line">		如果指定了fileno，则会从指定的文件描述符中自动检测family、type和proto的值，通常不会使用，此参数指定后，其他参数将失效</span><br></pre></td></tr></table></figure>
 <h4 id="创建一对已经连接的套接字对象"><a href="#创建一对已经连接的套接字对象" class="headerlink" title="创建一对已经连接的套接字对象"></a>创建一对已经连接的套接字对象</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">socketpair(family=None, type=SOCK_STREAM, proto=0)</span><br><span class="line">	相当于创建一对已经连接的socket套接字,包含server和client</span><br><span class="line">	默认是全双工模式,既可以发,也可以收</span><br><span class="line">	默认是创建unix套接字(AF_UNIX)</span><br><span class="line">	参数与socket基本一致</span><br><span class="line">	使用场景：</span><br><span class="line">		import socket</span><br><span class="line">		from multiprocessing import Process, Pipe</span><br><span class="line">		&quot;&quot;&quot;</span><br><span class="line">		进程间双向通信, 相当于进程间通信的PIPE，只支持Linux</span><br><span class="line">		&quot;&quot;&quot;</span><br><span class="line">		socket1, socket2 = socket.socketpair()</span><br><span class="line">		def process1():</span><br><span class="line">			print(socket1)</span><br><span class="line">			print(socket2)</span><br><span class="line">			# 关闭不需要的socket</span><br><span class="line">			socket2.close()</span><br><span class="line">			socket1.send(b&quot;hello&quot;)</span><br><span class="line"></span><br><span class="line">		def process2():</span><br><span class="line">			print(socket1)</span><br><span class="line">			socket1.close()</span><br><span class="line">			print(socket2)</span><br><span class="line">			print(socket2.recv(1024))</span><br><span class="line">		</span><br><span class="line">		# pipe　简易使用</span><br><span class="line">		conn1, conn2 = Pipe()</span><br><span class="line">		def process3():</span><br><span class="line">			print(conn1)</span><br><span class="line">			conn1.send(b&quot;hello&quot;)</span><br><span class="line"></span><br><span class="line">		def process4():</span><br><span class="line">			print(conn2)</span><br><span class="line">			print(conn2.recv())</span><br><span class="line">		if __name__ == &quot;__main__&quot;:</span><br><span class="line">			p1 = Process(target=process1)</span><br><span class="line">			p2 = Process(target=process2)</span><br><span class="line">			p1.start()</span><br><span class="line">			p2.start()</span><br><span class="line">			p3 = Process(target=process3)</span><br><span class="line">			p4 = Process(target=process4)</span><br><span class="line">			p3.start()</span><br><span class="line">			p4.start()</span><br><span class="line">－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－</span><br><span class="line">		&quot;&quot;&quot;</span><br><span class="line">		线程间双向通信:支持;Linux\Windows</span><br><span class="line">		&quot;&quot;&quot;</span><br><span class="line">		import threading</span><br><span class="line">		socket1, socket2 = socket.socketpair()</span><br><span class="line">		def thread1():</span><br><span class="line">			print(socket1)</span><br><span class="line">			socket1.send(b&quot;hello&quot;)</span><br><span class="line">		def thread2():</span><br><span class="line">			print(socket2)</span><br><span class="line">			print(socket2.recv(1024))</span><br><span class="line"></span><br><span class="line">		t1 = threading.Thread(target=thread1)</span><br><span class="line">		t2 = threading.Thread(target=thread2)</span><br><span class="line">		t1.start()</span><br><span class="line">		t2.start()</span><br></pre></td></tr></table></figure>
 <h4 id="创建连接基于tcp的socket对象-客户端"><a href="#创建连接基于tcp的socket对象-客户端" class="headerlink" title="创建连接基于tcp的socket对象(客户端)"></a>创建连接基于tcp的socket对象(客户端)</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create_connection(address, timeout=_GLOBAL_DEFAULT_TIMEOUT, source_address=None)</span><br><span class="line">	address: 需要连接的tcp服务的地址(host, port)</span><br><span class="line">	timeout: 连接的超时时间</span><br><span class="line">	source_address: 将socket对象绑定到对应地址上(host, port),会在服务端上显示对应此地址</span><br><span class="line">	只支持tcp,udp无法连接</span><br><span class="line">	它将尝试为AF_INET和AF_INET6解析它，然后尝试依次连接到所有可能的地址，直到连接成功。</span><br><span class="line">	这使得编写同时兼容IPv4和IPv6的客户端变得容易。</span><br></pre></td></tr></table></figure>
@@ -275,279 +284,33 @@
 <h4 id="select-IO多路复用-1"><a href="#select-IO多路复用-1" class="headerlink" title="select IO多路复用"></a>select IO多路复用</h4><p><img src="https://img2022.cnblogs.com/blog/2850640/202204/2850640-20220429103449922-1468225405.png" alt="image"></p>
 <p>引用内容<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/clschao/articles/9588313.html" title="sockopt">sockopt</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yuyutianxia/p/4908600.html" title="sockopt">sockopt_option</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/traditional/p/11806454.html" title="socket缓冲区">socket缓冲区</a><br><a target="_blank" rel="noopener" href="http://t.zoukankan.com/leijiangtao-p-11957234.html" title="shutdown与close区别">shutdown与close区别</a><br><a target="_blank" rel="noopener" href="https://www.jb51.net/article/209798.htm" title="listen理解">listen理解</a><br>以上内容均来自python官网:<br><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/socket.html" title="socket文档">socket文档</a></p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"># python</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/29/python%E5%B0%86%E5%91%BD%E4%BB%A4%E8%BE%93%E5%87%BA%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6%E6%88%96%E4%B8%B4%E6%97%B6%E7%BC%93%E5%AD%98/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="xy">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="xy-bot">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/05/29/python%E5%B0%86%E5%91%BD%E4%BB%A4%E8%BE%93%E5%87%BA%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6%E6%88%96%E4%B8%B4%E6%97%B6%E7%BC%93%E5%AD%98/" class="post-title-link" itemprop="url">python将命令输出写入文件或临时缓存</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-05-29 16:45:27 / 修改时间：16:55:01" itemprop="dateCreated datePublished" datetime="2022-05-29T16:45:27+08:00">2022-05-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" itemprop="url" rel="index"><span itemprop="name">python常用函数</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="python将命令输出写入文件"><a href="#python将命令输出写入文件" class="headerlink" title="python将命令输出写入文件"></a>python将命令输出写入文件</h2><p>将文件写入到对应文件，方便后期处理或保存</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def write_file(file_path):</span><br><span class="line">    with open(file=file_path, mode=&quot;w&quot;, encoding=&quot;utf-8&quot;) as out_file:</span><br><span class="line">        command = &quot;ifconfig&quot;</span><br><span class="line">        p = subprocess.Popen(command, shell=True, stdout=out_file, \</span><br><span class="line">            stdin=subprocess.PIPE, bufsize=1, universal_newlines=True)</span><br><span class="line">        print(p.pid)</span><br><span class="line"></span><br><span class="line">file_path = os.path.join(os.path.dirname(__file__), &quot;test.text&quot;)</span><br><span class="line">write_file(file_path)</span><br></pre></td></tr></table></figure>
-<h2 id="python将命令输出写入临时文件或者缓存"><a href="#python将命令输出写入临时文件或者缓存" class="headerlink" title="python将命令输出写入临时文件或者缓存"></a>python将命令输出写入临时文件或者缓存</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 临时文件,一般用于保存临时信息</span><br><span class="line">import tempfile</span><br><span class="line">def write_temp():</span><br><span class="line">    temp = tempfile.SpooledTemporaryFile(max_size=1024 * 10)</span><br><span class="line">    out_temp = temp.fileno()</span><br><span class="line">    command = &quot;ifconfig&quot;</span><br><span class="line">    p = subprocess.Popen(command, shell=True, stdout=out_temp, \</span><br><span class="line">        bufsize=1, universal_newlines=True)</span><br><span class="line">    print(p.pid)</span><br><span class="line">    print(out_temp.conjugate())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="tempfile不同临时文件的区别"><a href="#tempfile不同临时文件的区别" class="headerlink" title="tempfile不同临时文件的区别"></a>tempfile不同临时文件的区别</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tempfile.TemporaryFile([mode=’w+b&#x27;[, bufsize=-1[, suffix=”[, prefix=’tmp&#x27;[, dir=None]]]]])</span><br></pre></td></tr></table></figure>
-<p>该函数返回一个 类文件 对象(file-like)用于临时数据保存（实际上对应磁盘上的一个临时文件）。当文件对象被close或者被del的时候，临时文件将从磁盘上删除。mode、bufsize参数的单方与open()函数一样；suffix和prefix指定了临时文件名的后缀和前缀；dir用于设置临时文件默认的保存路径。返回的类文件对象有一个file属性，它指向真正操作的底层的file对象。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tempfile.NamedTemporaryFile([mode=’w+b&#x27;[, bufsize=-1[, suffix=”[, prefix=’tmp&#x27;[, dir=None[, delete=True]]]]]])</span><br></pre></td></tr></table></figure>
-<p>tempfile.NamedTemporaryFile函数的行为与tempfile.TemporaryFile类似，只不过它多了一个delete参数，用于指定类文件对象close或者被del之后，是否也一同删除磁盘上的临时文件（当delete &#x3D; True的时候，行为与TemporaryFile一样）。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tempfile.SpooledTemporaryFile([max_size=0[, mode=’w+b&#x27;[, bufsize=-1[, suffix=”[, prefix=’tmp&#x27;[, dir=None]]]]]])</span><br></pre></td></tr></table></figure>
-<p>tempfile.SpooledTemporaryFile函数的行为与tempfile.TemporaryFile类似。不同的是向类文件对象写数据的时候，数据长度只有到达参数max_size指定大小时，或者调用类文件对象的fileno()方法，数据才会真正写入到磁盘的临时文件中。</p>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/05/29/python%E5%B0%86%E5%91%BD%E4%BB%A4%E8%BE%93%E5%87%BA%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6%E6%88%96%E4%B8%B4%E6%97%B6%E7%BC%93%E5%AD%98/" rel="prev" title="python将命令输出写入文件或临时缓存">
+      <i class="fa fa-chevron-left"></i> python将命令输出写入文件或临时缓存
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/29/python%E5%9C%A8%E7%AE%A1%E9%81%93%E4%B8%AD%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="xy">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="xy-bot">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/05/29/python%E5%9C%A8%E7%AE%A1%E9%81%93%E4%B8%AD%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">python在管道中执行命令</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-05-29 16:44:24 / 修改时间：16:55:11" itemprop="dateCreated datePublished" datetime="2022-05-29T16:44:24+08:00">2022-05-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" itemprop="url" rel="index"><span itemprop="name">python常用函数</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="python在管道中执行命令"><a href="#python在管道中执行命令" class="headerlink" title="python在管道中执行命令"></a>python在管道中执行命令</h2><p>在实际开发中，可能在执行命令过程中，需要在命令的管道中输入相应命令后继续执行，因此需要在执行命令后在命令的管道中输入相应指令</p>
-<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>直接使用communicate向管道传入所需指令,注意如果是多个命令，需要在command中间添加\n，例如：ls\nifconfig</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def write_pipe1():</span><br><span class="line">    command = &quot;adb shell&quot;</span><br><span class="line">    p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, \</span><br><span class="line">        stdin=subprocess.PIPE, bufsize=1, universal_newlines=True)</span><br><span class="line">    inner_command = &quot;ifconfig&quot;</span><br><span class="line">    output, error = p.communicate(inner_command)</span><br><span class="line">    print(f&quot;output:\n&#123;output&#125;\n error:&#123;error&#125;&quot;)</span><br><span class="line"></span><br><span class="line">write_pipe1()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>向管道中写入数据，使用communicate获取管道中的输出， 多个命令时与方法一类似</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def write_pipe2():</span><br><span class="line">    command = &quot;adb shell&quot;</span><br><span class="line">    p = subprocess.Popen(command, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, \</span><br><span class="line">        stderr=subprocess.PIPE, bufsize=1, universal_newlines=True)</span><br><span class="line">    inner_command = &quot;ifconfig&quot;</span><br><span class="line">    p.stdin.write(inner_command)</span><br><span class="line">    # 刷新缓冲区</span><br><span class="line">    p.stdin.flush()</span><br><span class="line">    output, error = p.communicate()</span><br><span class="line">    print(f&quot;output:\n&#123;output&#125;\n error:&#123;error&#125;&quot;)</span><br><span class="line"></span><br><span class="line">write_pipe2()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/29/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="xy">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="xy-bot">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/05/29/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">docker常用命令</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-05-29 10:40:10 / 修改时间：16:48:08" itemprop="dateCreated datePublished" datetime="2022-05-29T10:40:10+08:00">2022-05-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="docker简介"><a href="#docker简介" class="headerlink" title="docker简介"></a>docker简介</h2><p>docker是一个开源的容器引擎，可以将开发者的应用以及依赖包打包到轻量级、可移植的容器中，从而部署到Linux系统中，可以实现虚拟化操作。<br>容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低</p>
-<h2 id="docker的优缺点"><a href="#docker的优缺点" class="headerlink" title="docker的优缺点"></a>docker的优缺点</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.更快的进行项目交付与部署</span><br><span class="line">2.易于迁移与扩展</span><br><span class="line">3.CPU/内存资源的开销少</span><br><span class="line">4.环境隔离</span><br><span class="line">不同的容器之间环境互不依赖，因此可以部署在同一台机器上</span><br></pre></td></tr></table></figure>
-<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.无法在32bit的linux/Windows/unix环境下使用。</span><br><span class="line">2.对于磁盘的管理比较有限</span><br></pre></td></tr></table></figure>
-<h2 id="docker使用场景"><a href="#docker使用场景" class="headerlink" title="docker使用场景"></a>docker使用场景</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.web应用的打包与部署，例如flask环境、redis、mongdb等环境</span><br><span class="line">2.自动化测试与持续集成、发布</span><br><span class="line">3.任何不依赖于硬件（或可以将依赖虚拟化）的可独立的环境打包，例如安卓不同项目、不同版本的编译</span><br></pre></td></tr></table></figure>
-<h2 id="容器生命周期管理命令"><a href="#容器生命周期管理命令" class="headerlink" title="容器生命周期管理命令"></a>容器生命周期管理命令</h2><h3 id="run"><a href="#run" class="headerlink" title="run"></a>run</h3><p>创建一个新容器：可选参数：</p>
-<ul>
-<li>–name：设置容器的名称</li>
-<li>-d: 容器以后台模式运行</li>
-<li>-i: 交互式方式操作</li>
-<li>-t: 分配一个伪终端</li>
-<li>-p: 设置将容器的端口映射到主机的端口</li>
-<li>-v: 设置将主机的路径映射到容器的对应路径，当映射完成后，主机路径内容改变会影响到容器对于路径的内容改变</li>
-<li>&#x2F;bin&#x2F;bash: 在创建玩容器后直接进入docker的命令行终端</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用docker镜像nginx:latest以后台模式启动一个容器,并将容器命名为mynginx。  </span></span><br><span class="line">docker run --name mynginx -d nginx:latest  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用镜像 nginx:latest，以后台模式启动一个容器,将容器的 80 端口映射到主机的 80 端口,主机的目录 /data 映射到容器的 /data。  </span></span><br><span class="line">docker run -p 80:80 -v /data:/data -d nginx:latest  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用镜像nginx:latest以交互模式启动一个容器,在容器内执行/bin/bash命令。  </span></span><br><span class="line">docker run -it nginx:latest /bin/bash  </span><br></pre></td></tr></table></figure>
-<h3 id="start-x2F-stop-x2F-restart"><a href="#start-x2F-stop-x2F-restart" class="headerlink" title="start&#x2F;stop&#x2F;restart"></a>start&#x2F;stop&#x2F;restart</h3><ul>
-<li>docker start : 启动一个或多个已经被停止的容器。</li>
-<li>docker stop : 停止一个运行中的容器。</li>
-<li>docker restart : 重启容器。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动已被停止的容器mynginx  </span></span><br><span class="line">docker start mynginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止运行中的容器mynginx  </span></span><br><span class="line">docker stop mynginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启容器mynginx  </span></span><br><span class="line">docker restart mynginx </span><br></pre></td></tr></table></figure>
-<h3 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h3>杀掉一个运行中的容器。可选参数：</li>
-<li>-s : 发送什么信号到容器，默认 KILL<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 根据容器名字杀掉容器  </span></span><br><span class="line">docker <span class="built_in">kill</span> tomcat7  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据容器ID杀掉容器  </span></span><br><span class="line">docker <span class="built_in">kill</span> 65d4a94f7a39  </span><br></pre></td></tr></table></figure>
-<h3 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h3>删除一个或多个容器<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 强制删除容器 db01、db02：  </span></span><br><span class="line">docker <span class="built_in">rm</span> -f db01 db02  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除容器 nginx01, 并删除容器挂载的数据卷：  </span></span><br><span class="line">docker <span class="built_in">rm</span> -v nginx01  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除所有已经停止的容器：  </span></span><br><span class="line">docker <span class="built_in">rm</span> $(docker ps -a -q)</span><br></pre></td></tr></table></figure>
-<h3 id="create"><a href="#create" class="headerlink" title="create"></a>create</h3>创建一个新的容器但不启动它。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用docker镜像nginx:latest创建一个容器,并将容器命名为mynginx  </span></span><br><span class="line">docker create --name mynginx nginx:latest     </span><br></pre></td></tr></table></figure>
-<h3 id="exec"><a href="#exec" class="headerlink" title="exec"></a>exec</h3>在运行的容器中执行命令;也可以进入容器，可选参数</li>
-<li>-d : 分离模式: 在后台运行</li>
-<li>-i : 即使没有附加也保持STDIN 打开</li>
-<li>-t : 分配一个伪终端<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在容器 mynginx 中以交互模式执行容器内 /root/nginx.sh 脚本  </span></span><br><span class="line">docker <span class="built_in">exec</span> -it mynginx /bin/sh /root/nginx.sh  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 在容器 mynginx 中开启一个交互模式的终端</span></span><br><span class="line">docker <span class="built_in">exec</span> -i -t  mynginx /bin/bash  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 也可以通过 docker ps -a 命令查看已经在运行的容器，然后使用容器 ID 进入容器。  </span></span><br><span class="line">docker ps -a   </span><br><span class="line">docker <span class="built_in">exec</span> -it 9df70f9a0714 /bin/bash  </span><br></pre></td></tr></table></figure>
-<h3 id="attach"><a href="#attach" class="headerlink" title="attach"></a>attach</h3>当容器以后台模式运行时，需要进入容器，除了上述的exec，还有attach，但exec与attach有一个区别，当使用exec进入容器后推出，容器不会停止，但attach在退出后容器会停止，所以建议使用exec<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入容器id为1e560fca3906的容器</span></span><br><span class="line">docker attach 1e560fca3906 </span><br></pre></td></tr></table></figure>
-<h3 id="pause-x2F-unpause"><a href="#pause-x2F-unpause" class="headerlink" title="pause&#x2F;unpause"></a>pause&#x2F;unpause</h3></li>
-<li>docker pause :暂停容器中所有的进程。</li>
-<li>docker unpause :恢复容器中所有的进程。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 暂停数据库容器db01提供服务。  </span></span><br><span class="line">docker pause db01  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 恢复数据库容器 db01 提供服务  </span></span><br><span class="line">docker unpause db0  </span><br></pre></td></tr></table></figure>
-<h2 id="容器操作命令"><a href="#容器操作命令" class="headerlink" title="容器操作命令"></a>容器操作命令</h2><h3 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h3>列出容器，可选参数：</li>
-<li>-a : 显示所有的容器，包括未运行的。</li>
-<li>-f : 根据条件过滤显示的内容。</li>
-<li>–format : 指定返回值的模板文件。</li>
-<li>-l : 显示最近创建的容器。</li>
-<li>-n : 列出最近创建的n个容器。</li>
-<li>–no-trunc : 不截断输出。</li>
-<li>-q : 静默模式，只显示容器编号。</li>
-<li>-s : 显示总的文件大小。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 列出所有在运行的容器信息。  </span></span><br><span class="line">docker ps  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出最近创建的5个容器信息。  </span></span><br><span class="line">docker ps -n 5  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出所有创建的容器ID。  </span></span><br><span class="line">docker ps -a -q  </span><br></pre></td></tr></table></figure>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">补充说明：容器的7种状态：created（已创建）、restarting（重启中）、running（运行中）、removing（迁移中）、paused（暂停）、exited（停止）、dead（死亡）。</span><br></pre></td></tr></table></figure>
-<h2 id="未完，持续更新中"><a href="#未完，持续更新中" class="headerlink" title="未完，持续更新中"></a>未完，持续更新中</h2>More info: <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/SfCEt9fHRz1TrVN39mH2iQ">docker常用命令</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
@@ -600,6 +363,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#socket"><span class="nav-number">1.</span> <span class="nav-text">socket</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAsocket%E6%96%B9%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">创建socket方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E5%88%9B%E5%BB%BA"><span class="nav-number">1.1.1.</span> <span class="nav-text">普通创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E5%AF%B9%E5%B7%B2%E7%BB%8F%E8%BF%9E%E6%8E%A5%E7%9A%84%E5%A5%97%E6%8E%A5%E5%AD%97%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.1.2.</span> <span class="nav-text">创建一对已经连接的套接字对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%BF%9E%E6%8E%A5%E5%9F%BA%E4%BA%8Etcp%E7%9A%84socket%E5%AF%B9%E8%B1%A1-%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-number">1.1.3.</span> <span class="nav-text">创建连接基于tcp的socket对象(客户端)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%9F%BA%E4%BA%8Etcp%E7%9A%84socket%E5%AF%B9%E8%B1%A1-%E6%9C%8D%E5%8A%A1%E7%AB%AF-%EF%BC%8Cpython%E9%9C%80%E5%9C%A83-8%E4%BB%A5%E4%B8%8A"><span class="nav-number">1.1.4.</span> <span class="nav-text">创建基于tcp的socket对象(服务端)，python需在3.8以上</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.5.</span> <span class="nav-text">其他方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#socket%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.6.</span> <span class="nav-text">socket方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A5%97%E6%8E%A5%E5%AD%97%E5%88%9B%E5%BB%BA%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">1.1.7.</span> <span class="nav-text">套接字创建注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%B6%85%E6%97%B6%E5%92%8Cconnect%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.7.1.</span> <span class="nav-text">超时和connect方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%B6%85%E6%97%B6%E5%92%8Caccept%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.7.2.</span> <span class="nav-text">超时和accept方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#recv-send%E7%AD%89%E7%9B%B8%E5%85%B3%E6%90%BA%E5%B8%A6flag%E5%8F%82%E6%95%B0%E5%B1%95%E7%A4%BA"><span class="nav-number">1.1.8.</span> <span class="nav-text">recv, send等相关携带flag参数展示</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-number">1.2.</span> <span class="nav-text">例子</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E5%AF%B9%E4%B8%80%E5%8F%91%E9%80%81%EF%BC%9A%E5%8F%AA%E8%83%BD%E6%8E%A5%E6%94%B6%E4%B8%80%E6%AC%A1%EF%BC%9Atcp%EF%BC%8C%E6%8E%A5%E6%94%B6%E5%AE%8C%E8%87%AA%E5%8A%A8%E5%81%9C%E6%AD%A2"><span class="nav-number">1.2.1.</span> <span class="nav-text">一对一发送：只能接收一次：tcp，接收完自动停止</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">客户端</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">服务端</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E5%AF%B9%E5%A4%9A%E5%8F%91%E9%80%81%EF%BC%9A%E5%8F%AF%E4%BB%A5%E6%8E%A5%E6%94%B6%E4%B8%80%E6%AC%A1%EF%BC%9Atcp%EF%BC%8C%E6%8E%A5%E6%94%B6%E5%AE%8C%E5%8F%AF%E4%BB%A5%E7%BB%A7%E7%BB%AD%E6%8E%A5%E6%94%B6%EF%BC%8C%E4%B8%8D%E8%BF%87%E9%BB%98%E8%AE%A4socket%E4%BC%9A%E9%98%BB%E5%A1%9E"><span class="nav-number">1.2.2.</span> <span class="nav-text">一对多发送：可以接收一次：tcp，接收完可以继续接收，不过默认socket会阻塞</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF-1"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">客户端</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF-1"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">服务端</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#socket%E5%8F%91%E9%80%81%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%8F%8A%E6%8E%A5%E6%94%B6%E6%95%B0%E6%8D%AE"><span class="nav-number">1.2.3.</span> <span class="nav-text">socket发送大数据及接收数据</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF-2"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">客户端</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF-2"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">服务端</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#udp%E9%80%9A%E4%BF%A1"><span class="nav-number">1.2.4.</span> <span class="nav-text">udp通信</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF-3"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">客户端</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF-3"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">服务端</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">2.</span> <span class="nav-text">使用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%80%E5%9F%9F%E7%BD%91udp%E5%B9%BF%E6%92%AD"><span class="nav-number">2.1.</span> <span class="nav-text">局域网udp广播</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF-4"><span class="nav-number">2.1.1.</span> <span class="nav-text">服务端</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF-4"><span class="nav-number">2.1.2.</span> <span class="nav-text">客户端</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%EF%BC%88%E6%9C%8D%E5%8A%A1%E7%AB%AF%EF%BC%89%E5%AF%B9%E5%A4%9A%EF%BC%88%E5%AE%A2%E6%88%B7%E7%AB%AF%EF%BC%89%E9%80%9A%E4%BF%A1"><span class="nav-number">2.2.</span> <span class="nav-text">一（服务端）对多（客户端）通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF-5"><span class="nav-number">2.3.</span> <span class="nav-text">客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%96%B9%E5%BC%8F"><span class="nav-number">2.3.1.</span> <span class="nav-text">多线程方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8D%E5%86%99socketServer"><span class="nav-number">2.3.2.</span> <span class="nav-text">重写socketServer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#select-IO%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8"><span class="nav-number">2.3.3.</span> <span class="nav-text">select IO多路复用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#select%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%8E%A5%E6%94%B6%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9A%84%E4%B8%80%E6%AC%A1%E6%B5%81%E7%A8%8B"><span class="nav-number">2.3.4.</span> <span class="nav-text">select服务端接收客户端的一次流程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%B5%8B%E7%AB%AF%E5%8F%A3%E6%98%AF%E5%90%A6%E8%A2%AB%E5%8D%A0%E7%94%A8"><span class="nav-number">2.4.</span> <span class="nav-text">检测端口是否被占用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%A8%E8%AF%AD%E8%A8%80%E9%80%9A%E4%BF%A1%EF%BC%88%E5%90%8C%E4%B8%80%E5%8F%B0%E8%AE%BE%E5%A4%87%EF%BC%89%EF%BC%8C%E4%B8%8D%E5%90%8C%E8%AE%BE%E5%A4%87%E7%9A%84%E9%87%87%E7%94%A8RPC"><span class="nav-number">2.5.</span> <span class="nav-text">跨语言通信（同一台设备），不同设备的采用RPC</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#python%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="nav-number">2.5.1.</span> <span class="nav-text">python服务端</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java-%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-number">2.5.2.</span> <span class="nav-text">java 客户端</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.6.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A5%E5%85%85"><span class="nav-number">3.</span> <span class="nav-text">补充</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#close%E4%B8%8Eshutdown%E9%97%AE%E9%A2%98"><span class="nav-number">3.1.</span> <span class="nav-text">close与shutdown问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#listen%E7%9C%9F%E7%9A%84%E6%98%AF%E6%9C%80%E5%A4%A7%E8%BF%9E%E6%8E%A5%E6%95%B0%E5%90%97%EF%BC%9F"><span class="nav-number">3.2.</span> <span class="nav-text">listen真的是最大连接数吗？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF-5"><span class="nav-number">3.2.1.</span> <span class="nav-text">服务端</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF-6"><span class="nav-number">3.2.2.</span> <span class="nav-text">客户端</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#socket-setsockopt-level-optname-value-optlen-int-%E8%AF%A6%E8%A7%A3"><span class="nav-number">3.3.</span> <span class="nav-text">socket.setsockopt(level, optname, value, optlen: int)详解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0"><span class="nav-number">3.3.1.</span> <span class="nav-text">相关参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E8%AE%BE%E7%BD%AE%E7%BC%93%E5%86%B2%E5%8C%BA%EF%BC%88%E5%8F%91%E9%80%81%E7%BC%93%E5%86%B2%E5%8C%BA%EF%BC%8C%E6%8E%A5%E6%94%B6%E7%BC%93%E5%86%B2%E5%8C%BA%EF%BC%89"><span class="nav-number">3.3.2.</span> <span class="nav-text">3.设置缓冲区（发送缓冲区，接收缓冲区）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E6%B3%95"><span class="nav-number">3.3.3.</span> <span class="nav-text">用法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E5%B9%B6%E5%8F%91%E8%BF%9E%E6%8E%A5%E6%97%B6%E7%AB%AF%E5%8F%A3%E5%86%B2%E7%AA%81%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E6%98%AF%E7%94%B1%E4%BA%8E%E5%9C%A8socket%E8%BF%9E%E6%8E%A5%E6%AD%A3%E5%B8%B8close%E5%90%8E%EF%BC%8C%E4%BC%9A%E6%9C%89%E4%B8%80%E5%AE%9A%E7%9A%84%E7%AD%89%E5%BE%85%E6%97%B6%E9%97%B4%E7%AB%AF%E5%8F%A3%E4%BB%8D%E8%A2%AB%E5%8D%A0%E7%94%A8%EF%BC%8C%E5%9B%A0%E6%AD%A4%E5%8F%AF%E4%BB%A5%E7%A7%BB%E9%99%A4%E5%85%B3%E9%97%AD%E5%90%8E%E7%9A%84%E7%AD%89%E5%BE%85%E6%97%B6%E9%97%B4-SO-REUSEADDR-%E5%8F%AF%E4%BB%A5%E9%87%8D%E7%94%A8%E7%AB%AF%E5%8F%A3"><span class="nav-number">3.3.3.1.</span> <span class="nav-text">1.并发连接时端口冲突的问题，是由于在socket连接正常close后，会有一定的等待时间端口仍被占用，因此可以移除关闭后的等待时间 SO_REUSEADDR:可以重用端口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E8%AE%BE%E7%BD%AE%E6%94%B6%E5%8F%91%E6%97%B6%E9%97%B4%EF%BC%8C%E5%8F%AF%E8%83%BD%E7%94%B1%E4%BA%8E%E7%BD%91%E7%BB%9C%E6%B3%A2%E5%8A%A8%E5%AF%BC%E8%87%B4%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E5%8F%91%E9%80%81"><span class="nav-number">3.3.3.2.</span> <span class="nav-text">2.设置收发时间，可能由于网络波动导致无法正常发送</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E5%8F%96%E6%B6%88socket%E9%BB%98%E8%AE%A4%E7%BC%93%E5%86%B2%E5%8C%BA%EF%BC%8C%E6%8F%90%E9%AB%98%E6%80%A7%E8%83%BD%EF%BC%8C%E9%BB%98%E8%AE%A4%E6%98%AF%E4%BB%8Esocket%E7%BC%93%E5%86%B2%E5%8C%BA%E8%AF%BB%E5%88%B0%E7%B3%BB%E7%BB%9F%E7%BC%93%E5%86%B2%E5%8C%BA%EF%BC%8C%E7%84%B6%E5%90%8E%E7%94%B1%E7%B3%BB%E7%BB%9F%E7%BC%93%E5%86%B2%E5%8C%BA%E5%8F%91%E9%80%81"><span class="nav-number">3.3.3.3.</span> <span class="nav-text">3.取消socket默认缓冲区，提高性能，默认是从socket缓冲区读到系统缓冲区，然后由系统缓冲区发送</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E8%AE%BE%E7%BD%AEsocket%E7%BC%93%E5%86%B2%E5%8C%BA%EF%BC%8C%E9%81%BF%E5%85%8Dsend-x2F-recv%E9%87%8D%E5%A4%8D%E5%8F%91%E9%80%81%EF%BC%8Csend%E8%BF%94%E5%9B%9E%E7%9A%84%E6%98%AF%E5%AE%9E%E9%99%85%E5%8F%91%E9%80%81%E5%87%BA%E5%8E%BB%E7%9A%84%E6%95%B0%E6%8D%AE-%E5%90%8C%E6%AD%A5-%E6%88%96%E5%8F%91%E9%80%81%E5%88%B0socket%E7%BC%93%E5%86%B2%E5%8C%BA%E7%9A%84%E6%95%B0%E6%8D%AE-%E5%BC%82%E6%AD%A5-%EF%BC%8C%E9%BB%98%E8%AE%A4%E7%B3%BB%E7%BB%9F%E5%8F%91%E9%80%81%E5%A4%A7%E5%B0%8F%E4%B8%BA8-8k%EF%BC%8C%E5%BD%93%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE%E9%87%8F%E8%BE%83%E5%A4%A7%E6%97%B6%E5%88%99%E9%9C%80%E8%A6%81%E5%A4%9A%E6%AC%A1%E5%8F%91%E9%80%81"><span class="nav-number">3.3.3.4.</span> <span class="nav-text">4.设置socket缓冲区，避免send&#x2F;recv重复发送，send返回的是实际发送出去的数据(同步)或发送到socket缓冲区的数据(异步)，默认系统发送大小为8.8k，当发送数据量较大时则需要多次发送</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E8%AE%BE%E7%BD%AE%E9%9D%9E%E9%98%BB%E5%A1%9E%E6%96%B9%E5%BC%8F"><span class="nav-number">3.3.4.</span> <span class="nav-text">5.设置非阻塞方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E5%9C%A8%E5%88%9B%E5%BB%BA%E6%97%B6%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.3.4.1.</span> <span class="nav-text">直接在创建时设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AE%8Csocket%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.3.4.2.</span> <span class="nav-text">创建完socket设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8fcntl%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.3.4.3.</span> <span class="nav-text">使用fcntl设置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#socket%E7%BC%93%E5%86%B2%E5%8C%BA"><span class="nav-number">3.4.</span> <span class="nav-text">socket缓冲区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#socket%E7%9B%B8%E5%85%B3%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="nav-number">3.5.</span> <span class="nav-text">socket相关流程图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#socket%E4%BD%8D%E7%BD%AE%E3%80%81%E5%B8%B8%E8%A7%81socket%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F%EF%BC%8Csocket%E7%BC%93%E5%86%B2%E5%8C%BA"><span class="nav-number">3.5.1.</span> <span class="nav-text">socket位置、常见socket通信方式，socket缓冲区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#select-IO%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8-1"><span class="nav-number">3.5.2.</span> <span class="nav-text">select IO多路复用</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
