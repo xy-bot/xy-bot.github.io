@@ -2,6 +2,9 @@
 title: python将命令输出写入文件或临时缓存
 date: 2022-05-29 16:45:27
 tags:
+- python
+categories:
+- python常用函数
 ---
 ## python将命令输出写入文件
 将文件写入到对应文件，方便后期处理或保存
