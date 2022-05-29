@@ -1,4 +1,5 @@
-<!-- hexo常用命令 -->
+## hexo常用命令
+``` text
 清除缓存：hexo clean
 编译生成对应文件：hexo generate
 本地启动：hexo serve/server
@@ -6,3 +7,9 @@
 创建标签：hexo new page tags
 创建分类：hexo new page categories
 部署到github上：hexo deploy
+```
+
+## 文档新建后的部署：直接执行deploy.sh文件
+```
+bash deploy.sh
+```
