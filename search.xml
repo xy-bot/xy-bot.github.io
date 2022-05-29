@@ -55,16 +55,6 @@
       </tags>
   </entry>
   <entry>
-    <title>python在管道中执行命令</title>
-    <url>/2022/05/29/python%E5%9C%A8%E7%AE%A1%E9%81%93%E4%B8%AD%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h2 id="python在管道中执行命令"><a href="#python在管道中执行命令" class="headerlink" title="python在管道中执行命令"></a>python在管道中执行命令</h2><p>在实际开发中，可能在执行命令过程中，需要在命令的管道中输入相应命令后继续执行，因此需要在执行命令后在命令的管道中输入相应指令</p>
-<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>直接使用communicate向管道传入所需指令,注意如果是多个命令，需要在command中间添加\n，例如：ls\nifconfig</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def write_pipe1():</span><br><span class="line">    command = &quot;adb shell&quot;</span><br><span class="line">    p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, \</span><br><span class="line">        stdin=subprocess.PIPE, bufsize=1, universal_newlines=True)</span><br><span class="line">    inner_command = &quot;ifconfig&quot;</span><br><span class="line">    output, error = p.communicate(inner_command)</span><br><span class="line">    print(f&quot;output:\n&#123;output&#125;\n error:&#123;error&#125;&quot;)</span><br><span class="line"></span><br><span class="line">write_pipe1()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>向管道中写入数据，使用communicate获取管道中的输出， 多个命令时与方法一类似</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def write_pipe2():</span><br><span class="line">    command = &quot;adb shell&quot;</span><br><span class="line">    p = subprocess.Popen(command, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, \</span><br><span class="line">        stderr=subprocess.PIPE, bufsize=1, universal_newlines=True)</span><br><span class="line">    inner_command = &quot;ifconfig&quot;</span><br><span class="line">    p.stdin.write(inner_command)</span><br><span class="line">    # 刷新缓冲区</span><br><span class="line">    p.stdin.flush()</span><br><span class="line">    output, error = p.communicate()</span><br><span class="line">    print(f&quot;output:\n&#123;output&#125;\n error:&#123;error&#125;&quot;)</span><br><span class="line"></span><br><span class="line">write_pipe2()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
     <title>python将命令输出写入文件或临时缓存</title>
     <url>/2022/05/29/python%E5%B0%86%E5%91%BD%E4%BB%A4%E8%BE%93%E5%87%BA%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6%E6%88%96%E4%B8%B4%E6%97%B6%E7%BC%93%E5%AD%98/</url>
     <content><![CDATA[<h2 id="python将命令输出写入文件"><a href="#python将命令输出写入文件" class="headerlink" title="python将命令输出写入文件"></a>python将命令输出写入文件</h2><p>将文件写入到对应文件，方便后期处理或保存</p>
@@ -77,5 +67,27 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tempfile.SpooledTemporaryFile([max_size=0[, mode=’w+b&#x27;[, bufsize=-1[, suffix=”[, prefix=’tmp&#x27;[, dir=None]]]]]])</span><br></pre></td></tr></table></figure>
 <p>tempfile.SpooledTemporaryFile函数的行为与tempfile.TemporaryFile类似。不同的是向类文件对象写数据的时候，数据长度只有到达参数max_size指定大小时，或者调用类文件对象的fileno()方法，数据才会真正写入到磁盘的临时文件中。</p>
 ]]></content>
+      <categories>
+        <category>python常用函数</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python在管道中执行命令</title>
+    <url>/2022/05/29/python%E5%9C%A8%E7%AE%A1%E9%81%93%E4%B8%AD%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="python在管道中执行命令"><a href="#python在管道中执行命令" class="headerlink" title="python在管道中执行命令"></a>python在管道中执行命令</h2><p>在实际开发中，可能在执行命令过程中，需要在命令的管道中输入相应命令后继续执行，因此需要在执行命令后在命令的管道中输入相应指令</p>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>直接使用communicate向管道传入所需指令,注意如果是多个命令，需要在command中间添加\n，例如：ls\nifconfig</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def write_pipe1():</span><br><span class="line">    command = &quot;adb shell&quot;</span><br><span class="line">    p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, \</span><br><span class="line">        stdin=subprocess.PIPE, bufsize=1, universal_newlines=True)</span><br><span class="line">    inner_command = &quot;ifconfig&quot;</span><br><span class="line">    output, error = p.communicate(inner_command)</span><br><span class="line">    print(f&quot;output:\n&#123;output&#125;\n error:&#123;error&#125;&quot;)</span><br><span class="line"></span><br><span class="line">write_pipe1()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>向管道中写入数据，使用communicate获取管道中的输出， 多个命令时与方法一类似</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def write_pipe2():</span><br><span class="line">    command = &quot;adb shell&quot;</span><br><span class="line">    p = subprocess.Popen(command, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, \</span><br><span class="line">        stderr=subprocess.PIPE, bufsize=1, universal_newlines=True)</span><br><span class="line">    inner_command = &quot;ifconfig&quot;</span><br><span class="line">    p.stdin.write(inner_command)</span><br><span class="line">    # 刷新缓冲区</span><br><span class="line">    p.stdin.flush()</span><br><span class="line">    output, error = p.communicate()</span><br><span class="line">    print(f&quot;output:\n&#123;output&#125;\n error:&#123;error&#125;&quot;)</span><br><span class="line"></span><br><span class="line">write_pipe2()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>python常用函数</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
   </entry>
 </search>
