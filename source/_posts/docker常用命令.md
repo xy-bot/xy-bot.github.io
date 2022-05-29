@@ -149,3 +149,4 @@ docker ps -a -q
 补充说明：容器的7种状态：created（已创建）、restarting（重启中）、running（运行中）、removing（迁移中）、paused（暂停）、exited（停止）、dead（死亡）。
 ```
 ## 未完，持续更新中
+More info: [docker常用命令](https://mp.weixin.qq.com/s/SfCEt9fHRz1TrVN39mH2iQ)
