@@ -178,7 +178,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/05/29/docker/" class="post-title-link" itemprop="url">docker常见命令</a>
+            <a href="/2022/05/29/docker/" class="post-title-link" itemprop="url">docker常用命令</a>
         </h2>
 
         <div class="post-meta">
@@ -189,7 +189,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-05-29 10:40:10 / 修改时间：11:40:15" itemprop="dateCreated datePublished" datetime="2022-05-29T10:40:10+08:00">2022-05-29</time>
+              <time title="创建时间：2022-05-29 10:40:10 / 修改时间：16:33:14" itemprop="dateCreated datePublished" datetime="2022-05-29T10:40:10+08:00">2022-05-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -212,7 +212,50 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h2 id="docker简介"><a href="#docker简介" class="headerlink" title="docker简介"></a>docker简介</h2><p>docker是一个开源的容器引擎，可以将开发者的应用以及依赖包打包到轻量级、可移植的容器中，从而部署到Linux系统中，可以实现虚拟化操作。<br>容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低</p>
+<h2 id="docker的优缺点"><a href="#docker的优缺点" class="headerlink" title="docker的优缺点"></a>docker的优缺点</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.更快的进行项目交付与部署</span><br><span class="line">2.易于迁移与扩展</span><br><span class="line">3.CPU/内存资源的开销少</span><br><span class="line">4.环境隔离</span><br><span class="line">不同的容器之间环境互不依赖，因此可以部署在同一台机器上</span><br></pre></td></tr></table></figure>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.无法在32bit的linux/Windows/unix环境下使用。</span><br><span class="line">2.对于磁盘的管理比较有限</span><br></pre></td></tr></table></figure>
+<h2 id="docker使用场景"><a href="#docker使用场景" class="headerlink" title="docker使用场景"></a>docker使用场景</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.web应用的打包与部署，例如flask环境、redis、mongdb等环境</span><br><span class="line">2.自动化测试与持续集成、发布</span><br><span class="line">3.任何不依赖于硬件（或可以将依赖虚拟化）的可独立的环境打包，例如安卓不同项目、不同版本的编译</span><br></pre></td></tr></table></figure>
+<h2 id="容器生命周期管理命令"><a href="#容器生命周期管理命令" class="headerlink" title="容器生命周期管理命令"></a>容器生命周期管理命令</h2><h3 id="run"><a href="#run" class="headerlink" title="run"></a>run</h3><p>创建一个新容器：可选参数：</p>
+<ul>
+<li>–name：设置容器的名称</li>
+<li>-d: 容器以后台模式运行</li>
+<li>-i: 交互式方式操作</li>
+<li>-t: 分配一个伪终端</li>
+<li>-p: 设置将容器的端口映射到主机的端口</li>
+<li>-v: 设置将主机的路径映射到容器的对应路径，当映射完成后，主机路径内容改变会影响到容器对于路径的内容改变</li>
+<li>&#x2F;bin&#x2F;bash: 在创建玩容器后直接进入docker的命令行终端</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用docker镜像nginx:latest以后台模式启动一个容器,并将容器命名为mynginx。  </span></span><br><span class="line">docker run --name mynginx -d nginx:latest  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用镜像 nginx:latest，以后台模式启动一个容器,将容器的 80 端口映射到主机的 80 端口,主机的目录 /data 映射到容器的 /data。  </span></span><br><span class="line">docker run -p 80:80 -v /data:/data -d nginx:latest  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用镜像nginx:latest以交互模式启动一个容器,在容器内执行/bin/bash命令。  </span></span><br><span class="line">docker run -it nginx:latest /bin/bash  </span><br></pre></td></tr></table></figure>
+<h3 id="start-x2F-stop-x2F-restart"><a href="#start-x2F-stop-x2F-restart" class="headerlink" title="start&#x2F;stop&#x2F;restart"></a>start&#x2F;stop&#x2F;restart</h3><ul>
+<li>docker start : 启动一个或多个已经被停止的容器。</li>
+<li>docker stop : 停止一个运行中的容器。</li>
+<li>docker restart : 重启容器。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动已被停止的容器mynginx  </span></span><br><span class="line">docker start mynginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止运行中的容器mynginx  </span></span><br><span class="line">docker stop mynginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启容器mynginx  </span></span><br><span class="line">docker restart mynginx </span><br></pre></td></tr></table></figure>
+<h3 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h3>杀掉一个运行中的容器。可选参数：</li>
+<li>-s : 发送什么信号到容器，默认 KILL<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 根据容器名字杀掉容器  </span></span><br><span class="line">docker <span class="built_in">kill</span> tomcat7  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据容器ID杀掉容器  </span></span><br><span class="line">docker <span class="built_in">kill</span> 65d4a94f7a39  </span><br></pre></td></tr></table></figure>
+<h3 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h3>删除一个或多个容器<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 强制删除容器 db01、db02：  </span></span><br><span class="line">docker <span class="built_in">rm</span> -f db01 db02  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除容器 nginx01, 并删除容器挂载的数据卷：  </span></span><br><span class="line">docker <span class="built_in">rm</span> -v nginx01  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除所有已经停止的容器：  </span></span><br><span class="line">docker <span class="built_in">rm</span> $(docker ps -a -q)</span><br></pre></td></tr></table></figure>
+<h3 id="create"><a href="#create" class="headerlink" title="create"></a>create</h3>创建一个新的容器但不启动它。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用docker镜像nginx:latest创建一个容器,并将容器命名为mynginx  </span></span><br><span class="line">docker create --name mynginx nginx:latest     </span><br></pre></td></tr></table></figure>
+<h3 id="exec"><a href="#exec" class="headerlink" title="exec"></a>exec</h3>在运行的容器中执行命令;也可以进入容器，可选参数</li>
+<li>-d : 分离模式: 在后台运行</li>
+<li>-i : 即使没有附加也保持STDIN 打开</li>
+<li>-t : 分配一个伪终端<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在容器 mynginx 中以交互模式执行容器内 /root/nginx.sh 脚本  </span></span><br><span class="line">docker <span class="built_in">exec</span> -it mynginx /bin/sh /root/nginx.sh  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 在容器 mynginx 中开启一个交互模式的终端</span></span><br><span class="line">docker <span class="built_in">exec</span> -i -t  mynginx /bin/bash  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 也可以通过 docker ps -a 命令查看已经在运行的容器，然后使用容器 ID 进入容器。  </span></span><br><span class="line">docker ps -a   </span><br><span class="line">docker <span class="built_in">exec</span> -it 9df70f9a0714 /bin/bash  </span><br></pre></td></tr></table></figure>
+<h3 id="attach"><a href="#attach" class="headerlink" title="attach"></a>attach</h3>当容器以后台模式运行时，需要进入容器，除了上述的exec，还有attach，但exec与attach有一个区别，当使用exec进入容器后推出，容器不会停止，但attach在退出后容器会停止，所以建议使用exec<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入容器id为1e560fca3906的容器</span></span><br><span class="line">docker attach 1e560fca3906 </span><br></pre></td></tr></table></figure>
+<h3 id="pause-x2F-unpause"><a href="#pause-x2F-unpause" class="headerlink" title="pause&#x2F;unpause"></a>pause&#x2F;unpause</h3></li>
+<li>docker pause :暂停容器中所有的进程。</li>
+<li>docker unpause :恢复容器中所有的进程。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 暂停数据库容器db01提供服务。  </span></span><br><span class="line">docker pause db01  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 恢复数据库容器 db01 提供服务  </span></span><br><span class="line">docker unpause db0  </span><br></pre></td></tr></table></figure>
+<h2 id="容器操作命令"><a href="#容器操作命令" class="headerlink" title="容器操作命令"></a>容器操作命令</h2><h3 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h3>列出容器，可选参数：</li>
+<li>-a : 显示所有的容器，包括未运行的。</li>
+<li>-f : 根据条件过滤显示的内容。</li>
+<li>–format : 指定返回值的模板文件。</li>
+<li>-l : 显示最近创建的容器。</li>
+<li>-n : 列出最近创建的n个容器。</li>
+<li>–no-trunc : 不截断输出。</li>
+<li>-q : 静默模式，只显示容器编号。</li>
+<li>-s : 显示总的文件大小。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 列出所有在运行的容器信息。  </span></span><br><span class="line">docker ps  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出最近创建的5个容器信息。  </span></span><br><span class="line">docker ps -n 5  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出所有创建的容器ID。  </span></span><br><span class="line">docker ps -a -q  </span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">补充说明：容器的7种状态：created（已创建）、restarting（重启中）、running（运行中）、removing（迁移中）、paused（暂停）、exited（停止）、dead（死亡）。</span><br></pre></td></tr></table></figure>
+<h2 id="未完，持续更新中"><a href="#未完，持续更新中" class="headerlink" title="未完，持续更新中"></a>未完，持续更新中</h2></li>
+</ul>
+
       
     </div>
 
