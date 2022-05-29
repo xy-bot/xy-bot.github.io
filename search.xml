@@ -71,26 +71,6 @@
       </tags>
   </entry>
   <entry>
-    <title>python将命令输出写入文件或临时缓存</title>
-    <url>/2022/05/29/python%E5%B0%86%E5%91%BD%E4%BB%A4%E8%BE%93%E5%87%BA%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6%E6%88%96%E4%B8%B4%E6%97%B6%E7%BC%93%E5%AD%98/</url>
-    <content><![CDATA[<h2 id="python将命令输出写入文件"><a href="#python将命令输出写入文件" class="headerlink" title="python将命令输出写入文件"></a>python将命令输出写入文件</h2><p>将文件写入到对应文件，方便后期处理或保存</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def write_file(file_path):</span><br><span class="line">    with open(file=file_path, mode=&quot;w&quot;, encoding=&quot;utf-8&quot;) as out_file:</span><br><span class="line">        command = &quot;ifconfig&quot;</span><br><span class="line">        p = subprocess.Popen(command, shell=True, stdout=out_file, \</span><br><span class="line">            stdin=subprocess.PIPE, bufsize=1, universal_newlines=True)</span><br><span class="line">        print(p.pid)</span><br><span class="line"></span><br><span class="line">file_path = os.path.join(os.path.dirname(__file__), &quot;test.text&quot;)</span><br><span class="line">write_file(file_path)</span><br></pre></td></tr></table></figure>
-<h2 id="python将命令输出写入临时文件或者缓存"><a href="#python将命令输出写入临时文件或者缓存" class="headerlink" title="python将命令输出写入临时文件或者缓存"></a>python将命令输出写入临时文件或者缓存</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 临时文件,一般用于保存临时信息</span><br><span class="line">import tempfile</span><br><span class="line">def write_temp():</span><br><span class="line">    temp = tempfile.SpooledTemporaryFile(max_size=1024 * 10)</span><br><span class="line">    out_temp = temp.fileno()</span><br><span class="line">    command = &quot;ifconfig&quot;</span><br><span class="line">    p = subprocess.Popen(command, shell=True, stdout=out_temp, \</span><br><span class="line">        bufsize=1, universal_newlines=True)</span><br><span class="line">    print(p.pid)</span><br><span class="line">    print(out_temp.conjugate())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="tempfile不同临时文件的区别"><a href="#tempfile不同临时文件的区别" class="headerlink" title="tempfile不同临时文件的区别"></a>tempfile不同临时文件的区别</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tempfile.TemporaryFile([mode=’w+b&#x27;[, bufsize=-1[, suffix=”[, prefix=’tmp&#x27;[, dir=None]]]]])</span><br></pre></td></tr></table></figure>
-<p>该函数返回一个 类文件 对象(file-like)用于临时数据保存（实际上对应磁盘上的一个临时文件）。当文件对象被close或者被del的时候，临时文件将从磁盘上删除。mode、bufsize参数的单方与open()函数一样；suffix和prefix指定了临时文件名的后缀和前缀；dir用于设置临时文件默认的保存路径。返回的类文件对象有一个file属性，它指向真正操作的底层的file对象。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tempfile.NamedTemporaryFile([mode=’w+b&#x27;[, bufsize=-1[, suffix=”[, prefix=’tmp&#x27;[, dir=None[, delete=True]]]]]])</span><br></pre></td></tr></table></figure>
-<p>tempfile.NamedTemporaryFile函数的行为与tempfile.TemporaryFile类似，只不过它多了一个delete参数，用于指定类文件对象close或者被del之后，是否也一同删除磁盘上的临时文件（当delete &#x3D; True的时候，行为与TemporaryFile一样）。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tempfile.SpooledTemporaryFile([max_size=0[, mode=’w+b&#x27;[, bufsize=-1[, suffix=”[, prefix=’tmp&#x27;[, dir=None]]]]]])</span><br></pre></td></tr></table></figure>
-<p>tempfile.SpooledTemporaryFile函数的行为与tempfile.TemporaryFile类似。不同的是向类文件对象写数据的时候，数据长度只有到达参数max_size指定大小时，或者调用类文件对象的fileno()方法，数据才会真正写入到磁盘的临时文件中。</p>
-]]></content>
-      <categories>
-        <category>python常用函数</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>python socket理解</title>
     <url>/2022/05/29/python-socket%E7%90%86%E8%A7%A3/</url>
     <content><![CDATA[<h2 id="socket"><a href="#socket" class="headerlink" title="socket"></a>socket</h2><p>所谓套接字(Socket)，就是对网络中不同主机上的应用进程之间进行双向通信的端点的抽象。一个套接字就是网络上进程通信的一端，提供了应用层进程利用网络协议交换数据的机制。从所处的地位来讲，套接字上联应用进程，下联网络协议栈，是应用程序通过网络协议进行通信的接口，是应用程序与网络协议栈进行交互的接口。</p>
@@ -163,6 +143,26 @@
 ]]></content>
       <categories>
         <category>python重点理解</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python将命令输出写入文件或临时缓存</title>
+    <url>/2022/05/29/python%E5%B0%86%E5%91%BD%E4%BB%A4%E8%BE%93%E5%87%BA%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6%E6%88%96%E4%B8%B4%E6%97%B6%E7%BC%93%E5%AD%98/</url>
+    <content><![CDATA[<h2 id="python将命令输出写入文件"><a href="#python将命令输出写入文件" class="headerlink" title="python将命令输出写入文件"></a>python将命令输出写入文件</h2><p>将文件写入到对应文件，方便后期处理或保存</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def write_file(file_path):</span><br><span class="line">    with open(file=file_path, mode=&quot;w&quot;, encoding=&quot;utf-8&quot;) as out_file:</span><br><span class="line">        command = &quot;ifconfig&quot;</span><br><span class="line">        p = subprocess.Popen(command, shell=True, stdout=out_file, \</span><br><span class="line">            stdin=subprocess.PIPE, bufsize=1, universal_newlines=True)</span><br><span class="line">        print(p.pid)</span><br><span class="line"></span><br><span class="line">file_path = os.path.join(os.path.dirname(__file__), &quot;test.text&quot;)</span><br><span class="line">write_file(file_path)</span><br></pre></td></tr></table></figure>
+<h2 id="python将命令输出写入临时文件或者缓存"><a href="#python将命令输出写入临时文件或者缓存" class="headerlink" title="python将命令输出写入临时文件或者缓存"></a>python将命令输出写入临时文件或者缓存</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 临时文件,一般用于保存临时信息</span><br><span class="line">import tempfile</span><br><span class="line">def write_temp():</span><br><span class="line">    temp = tempfile.SpooledTemporaryFile(max_size=1024 * 10)</span><br><span class="line">    out_temp = temp.fileno()</span><br><span class="line">    command = &quot;ifconfig&quot;</span><br><span class="line">    p = subprocess.Popen(command, shell=True, stdout=out_temp, \</span><br><span class="line">        bufsize=1, universal_newlines=True)</span><br><span class="line">    print(p.pid)</span><br><span class="line">    print(out_temp.conjugate())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="tempfile不同临时文件的区别"><a href="#tempfile不同临时文件的区别" class="headerlink" title="tempfile不同临时文件的区别"></a>tempfile不同临时文件的区别</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tempfile.TemporaryFile([mode=’w+b&#x27;[, bufsize=-1[, suffix=”[, prefix=’tmp&#x27;[, dir=None]]]]])</span><br></pre></td></tr></table></figure>
+<p>该函数返回一个 类文件 对象(file-like)用于临时数据保存（实际上对应磁盘上的一个临时文件）。当文件对象被close或者被del的时候，临时文件将从磁盘上删除。mode、bufsize参数的单方与open()函数一样；suffix和prefix指定了临时文件名的后缀和前缀；dir用于设置临时文件默认的保存路径。返回的类文件对象有一个file属性，它指向真正操作的底层的file对象。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tempfile.NamedTemporaryFile([mode=’w+b&#x27;[, bufsize=-1[, suffix=”[, prefix=’tmp&#x27;[, dir=None[, delete=True]]]]]])</span><br></pre></td></tr></table></figure>
+<p>tempfile.NamedTemporaryFile函数的行为与tempfile.TemporaryFile类似，只不过它多了一个delete参数，用于指定类文件对象close或者被del之后，是否也一同删除磁盘上的临时文件（当delete &#x3D; True的时候，行为与TemporaryFile一样）。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tempfile.SpooledTemporaryFile([max_size=0[, mode=’w+b&#x27;[, bufsize=-1[, suffix=”[, prefix=’tmp&#x27;[, dir=None]]]]]])</span><br></pre></td></tr></table></figure>
+<p>tempfile.SpooledTemporaryFile函数的行为与tempfile.TemporaryFile类似。不同的是向类文件对象写数据的时候，数据长度只有到达参数max_size指定大小时，或者调用类文件对象的fileno()方法，数据才会真正写入到磁盘的临时文件中。</p>
+]]></content>
+      <categories>
+        <category>python常用函数</category>
       </categories>
       <tags>
         <tag>python</tag>
