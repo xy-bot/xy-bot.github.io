@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>docker常用命令</title>
-    <url>/2022/05/29/docker/</url>
+    <url>/2022/05/29/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h2 id="docker简介"><a href="#docker简介" class="headerlink" title="docker简介"></a>docker简介</h2><p>docker是一个开源的容器引擎，可以将开发者的应用以及依赖包打包到轻量级、可移植的容器中，从而部署到Linux系统中，可以实现虚拟化操作。<br>容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低</p>
 <h2 id="docker的优缺点"><a href="#docker的优缺点" class="headerlink" title="docker的优缺点"></a>docker的优缺点</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">1.更快的进行项目交付与部署</span><br><span class="line">2.易于迁移与扩展</span><br><span class="line">3.CPU/内存资源的开销少</span><br><span class="line">4.环境隔离</span><br><span class="line">不同的容器之间环境互不依赖，因此可以部署在同一台机器上</span><br></pre></td></tr></table></figure>
 <h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">1.无法在32bit的linux/Windows/unix环境下使用。</span><br><span class="line">2.对于磁盘的管理比较有限</span><br></pre></td></tr></table></figure>
@@ -44,7 +44,7 @@
 <li>-q : 静默模式，只显示容器编号。</li>
 <li>-s : 显示总的文件大小。<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 列出所有在运行的容器信息。  </span></span><br><span class="line">docker ps  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出最近创建的5个容器信息。  </span></span><br><span class="line">docker ps -n 5  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出所有创建的容器ID。  </span></span><br><span class="line">docker ps -a -q  </span><br></pre></td></tr></table></figure>
 <figure class="highlight text"><table><tr><td class="code"><pre><span class="line">补充说明：容器的7种状态：created（已创建）、restarting（重启中）、running（运行中）、removing（迁移中）、paused（暂停）、exited（停止）、dead（死亡）。</span><br></pre></td></tr></table></figure>
-<h2 id="未完，持续更新中"><a href="#未完，持续更新中" class="headerlink" title="未完，持续更新中"></a>未完，持续更新中</h2></li>
+<h2 id="未完，持续更新中"><a href="#未完，持续更新中" class="headerlink" title="未完，持续更新中"></a>未完，持续更新中</h2>More info: <a href="https://mp.weixin.qq.com/s/SfCEt9fHRz1TrVN39mH2iQ">docker常用命令</a></li>
 </ul>
 ]]></content>
       <categories>
@@ -55,21 +55,27 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/05/28/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+    <title>python在管道中执行命令</title>
+    <url>/2022/05/29/python%E5%9C%A8%E7%AE%A1%E9%81%93%E4%B8%AD%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="python在管道中执行命令"><a href="#python在管道中执行命令" class="headerlink" title="python在管道中执行命令"></a>python在管道中执行命令</h2><p>在实际开发中，可能在执行命令过程中，需要在命令的管道中输入相应命令后继续执行，因此需要在执行命令后在命令的管道中输入相应指令</p>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>直接使用communicate向管道传入所需指令,注意如果是多个命令，需要在command中间添加\n，例如：ls\nifconfig</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def write_pipe1():</span><br><span class="line">    command = &quot;adb shell&quot;</span><br><span class="line">    p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, \</span><br><span class="line">        stdin=subprocess.PIPE, bufsize=1, universal_newlines=True)</span><br><span class="line">    inner_command = &quot;ifconfig&quot;</span><br><span class="line">    output, error = p.communicate(inner_command)</span><br><span class="line">    print(f&quot;output:\n&#123;output&#125;\n error:&#123;error&#125;&quot;)</span><br><span class="line"></span><br><span class="line">write_pipe1()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>向管道中写入数据，使用communicate获取管道中的输出， 多个命令时与方法一类似</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def write_pipe2():</span><br><span class="line">    command = &quot;adb shell&quot;</span><br><span class="line">    p = subprocess.Popen(command, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, \</span><br><span class="line">        stderr=subprocess.PIPE, bufsize=1, universal_newlines=True)</span><br><span class="line">    inner_command = &quot;ifconfig&quot;</span><br><span class="line">    p.stdin.write(inner_command)</span><br><span class="line">    # 刷新缓冲区</span><br><span class="line">    p.stdin.flush()</span><br><span class="line">    output, error = p.communicate()</span><br><span class="line">    print(f&quot;output:\n&#123;output&#125;\n error:&#123;error&#125;&quot;)</span><br><span class="line"></span><br><span class="line">write_pipe2()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>python将命令输出写入文件或临时缓存</title>
+    <url>/2022/05/29/python%E5%B0%86%E5%91%BD%E4%BB%A4%E8%BE%93%E5%87%BA%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6%E6%88%96%E4%B8%B4%E6%97%B6%E7%BC%93%E5%AD%98/</url>
+    <content><![CDATA[<h2 id="python将命令输出写入文件"><a href="#python将命令输出写入文件" class="headerlink" title="python将命令输出写入文件"></a>python将命令输出写入文件</h2><p>将文件写入到对应文件，方便后期处理或保存</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def write_file(file_path):</span><br><span class="line">    with open(file=file_path, mode=&quot;w&quot;, encoding=&quot;utf-8&quot;) as out_file:</span><br><span class="line">        command = &quot;ifconfig&quot;</span><br><span class="line">        p = subprocess.Popen(command, shell=True, stdout=out_file, \</span><br><span class="line">            stdin=subprocess.PIPE, bufsize=1, universal_newlines=True)</span><br><span class="line">        print(p.pid)</span><br><span class="line"></span><br><span class="line">file_path = os.path.join(os.path.dirname(__file__), &quot;test.text&quot;)</span><br><span class="line">write_file(file_path)</span><br></pre></td></tr></table></figure>
+<h2 id="python将命令输出写入临时文件或者缓存"><a href="#python将命令输出写入临时文件或者缓存" class="headerlink" title="python将命令输出写入临时文件或者缓存"></a>python将命令输出写入临时文件或者缓存</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 临时文件,一般用于保存临时信息</span><br><span class="line">import tempfile</span><br><span class="line">def write_temp():</span><br><span class="line">    temp = tempfile.SpooledTemporaryFile(max_size=1024 * 10)</span><br><span class="line">    out_temp = temp.fileno()</span><br><span class="line">    command = &quot;ifconfig&quot;</span><br><span class="line">    p = subprocess.Popen(command, shell=True, stdout=out_temp, \</span><br><span class="line">        bufsize=1, universal_newlines=True)</span><br><span class="line">    print(p.pid)</span><br><span class="line">    print(out_temp.conjugate())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="tempfile不同临时文件的区别"><a href="#tempfile不同临时文件的区别" class="headerlink" title="tempfile不同临时文件的区别"></a>tempfile不同临时文件的区别</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tempfile.TemporaryFile([mode=’w+b&#x27;[, bufsize=-1[, suffix=”[, prefix=’tmp&#x27;[, dir=None]]]]])</span><br></pre></td></tr></table></figure>
+<p>该函数返回一个 类文件 对象(file-like)用于临时数据保存（实际上对应磁盘上的一个临时文件）。当文件对象被close或者被del的时候，临时文件将从磁盘上删除。mode、bufsize参数的单方与open()函数一样；suffix和prefix指定了临时文件名的后缀和前缀；dir用于设置临时文件默认的保存路径。返回的类文件对象有一个file属性，它指向真正操作的底层的file对象。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tempfile.NamedTemporaryFile([mode=’w+b&#x27;[, bufsize=-1[, suffix=”[, prefix=’tmp&#x27;[, dir=None[, delete=True]]]]]])</span><br></pre></td></tr></table></figure>
+<p>tempfile.NamedTemporaryFile函数的行为与tempfile.TemporaryFile类似，只不过它多了一个delete参数，用于指定类文件对象close或者被del之后，是否也一同删除磁盘上的临时文件（当delete &#x3D; True的时候，行为与TemporaryFile一样）。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tempfile.SpooledTemporaryFile([max_size=0[, mode=’w+b&#x27;[, bufsize=-1[, suffix=”[, prefix=’tmp&#x27;[, dir=None]]]]]])</span><br></pre></td></tr></table></figure>
+<p>tempfile.SpooledTemporaryFile函数的行为与tempfile.TemporaryFile类似。不同的是向类文件对象写数据的时候，数据长度只有到达参数max_size指定大小时，或者调用类文件对象的fileno()方法，数据才会真正写入到磁盘的临时文件中。</p>
 ]]></content>
   </entry>
 </search>
