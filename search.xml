@@ -55,13 +55,15 @@
       </tags>
   </entry>
   <entry>
-    <title>python在管道中执行命令</title>
-    <url>/2022/05/29/python%E5%9C%A8%E7%AE%A1%E9%81%93%E4%B8%AD%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h2 id="python在管道中执行命令"><a href="#python在管道中执行命令" class="headerlink" title="python在管道中执行命令"></a>python在管道中执行命令</h2><p>在实际开发中，可能在执行命令过程中，需要在命令的管道中输入相应命令后继续执行，因此需要在执行命令后在命令的管道中输入相应指令</p>
-<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>直接使用communicate向管道传入所需指令,注意如果是多个命令，需要在command中间添加\n，例如：ls\nifconfig</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def write_pipe1():</span><br><span class="line">    command = &quot;adb shell&quot;</span><br><span class="line">    p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, \</span><br><span class="line">        stdin=subprocess.PIPE, bufsize=1, universal_newlines=True)</span><br><span class="line">    inner_command = &quot;ifconfig&quot;</span><br><span class="line">    output, error = p.communicate(inner_command)</span><br><span class="line">    print(f&quot;output:\n&#123;output&#125;\n error:&#123;error&#125;&quot;)</span><br><span class="line"></span><br><span class="line">write_pipe1()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>向管道中写入数据，使用communicate获取管道中的输出， 多个命令时与方法一类似</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def write_pipe2():</span><br><span class="line">    command = &quot;adb shell&quot;</span><br><span class="line">    p = subprocess.Popen(command, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, \</span><br><span class="line">        stderr=subprocess.PIPE, bufsize=1, universal_newlines=True)</span><br><span class="line">    inner_command = &quot;ifconfig&quot;</span><br><span class="line">    p.stdin.write(inner_command)</span><br><span class="line">    # 刷新缓冲区</span><br><span class="line">    p.stdin.flush()</span><br><span class="line">    output, error = p.communicate()</span><br><span class="line">    print(f&quot;output:\n&#123;output&#125;\n error:&#123;error&#125;&quot;)</span><br><span class="line"></span><br><span class="line">write_pipe2()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    <title>python不同平台进程的启动与终止</title>
+    <url>/2022/05/31/python%E4%B8%8D%E5%90%8C%E5%B9%B3%E5%8F%B0%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%90%AF%E5%8A%A8%E4%B8%8E%E7%BB%88%E6%AD%A2/</url>
+    <content><![CDATA[<h2 id="Liunx进程的启动与终止"><a href="#Liunx进程的启动与终止" class="headerlink" title="Liunx进程的启动与终止"></a>Liunx进程的启动与终止</h2><p>在使用subprocess创建进程时需要将所有进程设置为一个进程组<br>preexec_fn：只在 Unix 平台下有效，用于指定一个可执行对象（callable object），它将在子进程运行之前被调用<br>close_fds：在执行子进程之前,将关闭除0、1和2以外的所有文件描述符；表示子进程将不会继承父进程的输入、输出、错误管道</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import subprocess, os, signal, time</span><br><span class="line"></span><br><span class="line">process_pid = None</span><br><span class="line"></span><br><span class="line"># linux</span><br><span class="line">def start_process():</span><br><span class="line">    command = &quot;adb shell&quot;</span><br><span class="line">    p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, \</span><br><span class="line">        preexec_fn=os.setpgrp, close_fds=True)</span><br><span class="line">    print(&quot;adb shell&quot;)</span><br><span class="line">    global process_pid</span><br><span class="line">    process_pid = p.pid</span><br><span class="line">    print(process_pid)</span><br><span class="line"></span><br><span class="line">start_process()</span><br><span class="line">time.sleep(5)</span><br><span class="line">os.killpg(process_pid, signal.SIGKILL)</span><br></pre></td></tr></table></figure>
+<h2 id="Windows进程的启动与终止"><a href="#Windows进程的启动与终止" class="headerlink" title="Windows进程的启动与终止"></a>Windows进程的启动与终止</h2><p>由于preexec_fn不适用于Windows系统，因此采取另外方式</p>
+<h3 id="方式一："><a href="#方式一：" class="headerlink" title="方式一："></a>方式一：</h3><p>使用psutils遍历进程ID的子进程依次杀，此方法也适用于Linux系统</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 进程开启</span><br><span class="line">import subprocess, psutil, time</span><br><span class="line">command = &quot;adb shell&quot;</span><br><span class="line">process = subprocess.Popen(command, shell=True, \</span><br><span class="line">    stdout=subprocess.PIPE, stderr=subprocess.PIPE)</span><br><span class="line">process_id = process.pid</span><br><span class="line">print(process_id)</span><br><span class="line">print(&quot;adb shell&quot;)</span><br><span class="line"></span><br><span class="line"># 进程终止</span><br><span class="line">def kill(proc_pid):</span><br><span class="line">    parent_proc = psutil.Process(proc_pid)</span><br><span class="line">    # recursive=True：获取所有的父子进程</span><br><span class="line">    for child_proc in parent_proc.children(recursive=True):</span><br><span class="line">        child_proc.kill()</span><br><span class="line">    parent_proc.kill()</span><br><span class="line">time.sleep(5)</span><br><span class="line"></span><br><span class="line">kill(process_id)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="方式二："><a href="#方式二：" class="headerlink" title="方式二："></a>方式二：</h3><p>直接使用Windows的taskkill -t:进程树，-f:强制杀死</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">taskkill /pid process_id -t -f</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>python常用函数</category>
@@ -143,6 +145,22 @@
 ]]></content>
       <categories>
         <category>python重点理解</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python在管道中执行命令</title>
+    <url>/2022/05/29/python%E5%9C%A8%E7%AE%A1%E9%81%93%E4%B8%AD%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="python在管道中执行命令"><a href="#python在管道中执行命令" class="headerlink" title="python在管道中执行命令"></a>python在管道中执行命令</h2><p>在实际开发中，可能在执行命令过程中，需要在命令的管道中输入相应命令后继续执行，因此需要在执行命令后在命令的管道中输入相应指令</p>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>直接使用communicate向管道传入所需指令,注意如果是多个命令，需要在command中间添加\n，例如：ls\nifconfig</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def write_pipe1():</span><br><span class="line">    command = &quot;adb shell&quot;</span><br><span class="line">    p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, \</span><br><span class="line">        stdin=subprocess.PIPE, bufsize=1, universal_newlines=True)</span><br><span class="line">    inner_command = &quot;ifconfig&quot;</span><br><span class="line">    output, error = p.communicate(inner_command)</span><br><span class="line">    print(f&quot;output:\n&#123;output&#125;\n error:&#123;error&#125;&quot;)</span><br><span class="line"></span><br><span class="line">write_pipe1()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>向管道中写入数据，使用communicate获取管道中的输出， 多个命令时与方法一类似</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def write_pipe2():</span><br><span class="line">    command = &quot;adb shell&quot;</span><br><span class="line">    p = subprocess.Popen(command, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, \</span><br><span class="line">        stderr=subprocess.PIPE, bufsize=1, universal_newlines=True)</span><br><span class="line">    inner_command = &quot;ifconfig&quot;</span><br><span class="line">    p.stdin.write(inner_command)</span><br><span class="line">    # 刷新缓冲区</span><br><span class="line">    p.stdin.flush()</span><br><span class="line">    output, error = p.communicate()</span><br><span class="line">    print(f&quot;output:\n&#123;output&#125;\n error:&#123;error&#125;&quot;)</span><br><span class="line"></span><br><span class="line">write_pipe2()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>python常用函数</category>
       </categories>
       <tags>
         <tag>python</tag>

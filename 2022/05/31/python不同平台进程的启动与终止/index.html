@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="python将命令输出写入文件将文件写入到对应文件，方便后期处理或保存 123456789def write_file(file_path):    with open(file&#x3D;file_path, mode&#x3D;&quot;w&quot;, encoding&#x3D;&quot;utf-8&quot;) as out_file:        command &#x3D; &quot;ifconfig&quot;">
+  <meta name="description" content="Liunx进程的启动与终止在使用subprocess创建进程时需要将所有进程设置为一个进程组preexec_fn：只在 Unix 平台下有效，用于指定一个可执行对象（callable object），它将在子进程运行之前被调用close_fds：在执行子进程之前,将关闭除0、1和2以外的所有文件描述符；表示子进程将不会继承父进程的输入、输出、错误管道 12345678910111213141516">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python将命令输出写入文件或临时缓存">
-<meta property="og:url" content="http://example.com/2022/05/29/python%E5%B0%86%E5%91%BD%E4%BB%A4%E8%BE%93%E5%87%BA%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6%E6%88%96%E4%B8%B4%E6%97%B6%E7%BC%93%E5%AD%98/index.html">
+<meta property="og:title" content="python不同平台进程的启动与终止">
+<meta property="og:url" content="http://example.com/2022/05/31/python%E4%B8%8D%E5%90%8C%E5%B9%B3%E5%8F%B0%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%90%AF%E5%8A%A8%E4%B8%8E%E7%BB%88%E6%AD%A2/index.html">
 <meta property="og:site_name" content="xy-bot">
-<meta property="og:description" content="python将命令输出写入文件将文件写入到对应文件，方便后期处理或保存 123456789def write_file(file_path):    with open(file&#x3D;file_path, mode&#x3D;&quot;w&quot;, encoding&#x3D;&quot;utf-8&quot;) as out_file:        command &#x3D; &quot;ifconfig&quot;">
+<meta property="og:description" content="Liunx进程的启动与终止在使用subprocess创建进程时需要将所有进程设置为一个进程组preexec_fn：只在 Unix 平台下有效，用于指定一个可执行对象（callable object），它将在子进程运行之前被调用close_fds：在执行子进程之前,将关闭除0、1和2以外的所有文件描述符；表示子进程将不会继承父进程的输入、输出、错误管道 12345678910111213141516">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-05-29T08:45:27.000Z">
-<meta property="article:modified_time" content="2022-05-29T08:55:01.672Z">
+<meta property="article:published_time" content="2022-05-31T11:17:48.000Z">
+<meta property="article:modified_time" content="2022-05-31T11:18:06.510Z">
 <meta property="article:author" content="xy">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2022/05/29/python%E5%B0%86%E5%91%BD%E4%BB%A4%E8%BE%93%E5%87%BA%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6%E6%88%96%E4%B8%B4%E6%97%B6%E7%BC%93%E5%AD%98/">
+<link rel="canonical" href="http://example.com/2022/05/31/python%E4%B8%8D%E5%90%8C%E5%B9%B3%E5%8F%B0%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%90%AF%E5%8A%A8%E4%B8%8E%E7%BB%88%E6%AD%A2/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>python将命令输出写入文件或临时缓存 | xy-bot</title>
+  <title>python不同平台进程的启动与终止 | xy-bot</title>
   
 
 
@@ -170,7 +170,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/29/python%E5%B0%86%E5%91%BD%E4%BB%A4%E8%BE%93%E5%87%BA%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6%E6%88%96%E4%B8%B4%E6%97%B6%E7%BC%93%E5%AD%98/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/31/python%E4%B8%8D%E5%90%8C%E5%B9%B3%E5%8F%B0%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%90%AF%E5%8A%A8%E4%B8%8E%E7%BB%88%E6%AD%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -183,7 +183,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          python将命令输出写入文件或临时缓存
+          python不同平台进程的启动与终止
         </h1>
 
         <div class="post-meta">
@@ -194,7 +194,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-05-29 16:45:27 / 修改时间：16:55:01" itemprop="dateCreated datePublished" datetime="2022-05-29T16:45:27+08:00">2022-05-29</time>
+              <time title="创建时间：2022-05-31 19:17:48 / 修改时间：19:18:06" itemprop="dateCreated datePublished" datetime="2022-05-31T19:17:48+08:00">2022-05-31</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -217,15 +217,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="python将命令输出写入文件"><a href="#python将命令输出写入文件" class="headerlink" title="python将命令输出写入文件"></a>python将命令输出写入文件</h2><p>将文件写入到对应文件，方便后期处理或保存</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def write_file(file_path):</span><br><span class="line">    with open(file=file_path, mode=&quot;w&quot;, encoding=&quot;utf-8&quot;) as out_file:</span><br><span class="line">        command = &quot;ifconfig&quot;</span><br><span class="line">        p = subprocess.Popen(command, shell=True, stdout=out_file, \</span><br><span class="line">            stdin=subprocess.PIPE, bufsize=1, universal_newlines=True)</span><br><span class="line">        print(p.pid)</span><br><span class="line"></span><br><span class="line">file_path = os.path.join(os.path.dirname(__file__), &quot;test.text&quot;)</span><br><span class="line">write_file(file_path)</span><br></pre></td></tr></table></figure>
-<h2 id="python将命令输出写入临时文件或者缓存"><a href="#python将命令输出写入临时文件或者缓存" class="headerlink" title="python将命令输出写入临时文件或者缓存"></a>python将命令输出写入临时文件或者缓存</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 临时文件,一般用于保存临时信息</span><br><span class="line">import tempfile</span><br><span class="line">def write_temp():</span><br><span class="line">    temp = tempfile.SpooledTemporaryFile(max_size=1024 * 10)</span><br><span class="line">    out_temp = temp.fileno()</span><br><span class="line">    command = &quot;ifconfig&quot;</span><br><span class="line">    p = subprocess.Popen(command, shell=True, stdout=out_temp, \</span><br><span class="line">        bufsize=1, universal_newlines=True)</span><br><span class="line">    print(p.pid)</span><br><span class="line">    print(out_temp.conjugate())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="tempfile不同临时文件的区别"><a href="#tempfile不同临时文件的区别" class="headerlink" title="tempfile不同临时文件的区别"></a>tempfile不同临时文件的区别</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tempfile.TemporaryFile([mode=’w+b&#x27;[, bufsize=-1[, suffix=”[, prefix=’tmp&#x27;[, dir=None]]]]])</span><br></pre></td></tr></table></figure>
-<p>该函数返回一个 类文件 对象(file-like)用于临时数据保存（实际上对应磁盘上的一个临时文件）。当文件对象被close或者被del的时候，临时文件将从磁盘上删除。mode、bufsize参数的单方与open()函数一样；suffix和prefix指定了临时文件名的后缀和前缀；dir用于设置临时文件默认的保存路径。返回的类文件对象有一个file属性，它指向真正操作的底层的file对象。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tempfile.NamedTemporaryFile([mode=’w+b&#x27;[, bufsize=-1[, suffix=”[, prefix=’tmp&#x27;[, dir=None[, delete=True]]]]]])</span><br></pre></td></tr></table></figure>
-<p>tempfile.NamedTemporaryFile函数的行为与tempfile.TemporaryFile类似，只不过它多了一个delete参数，用于指定类文件对象close或者被del之后，是否也一同删除磁盘上的临时文件（当delete &#x3D; True的时候，行为与TemporaryFile一样）。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tempfile.SpooledTemporaryFile([max_size=0[, mode=’w+b&#x27;[, bufsize=-1[, suffix=”[, prefix=’tmp&#x27;[, dir=None]]]]]])</span><br></pre></td></tr></table></figure>
-<p>tempfile.SpooledTemporaryFile函数的行为与tempfile.TemporaryFile类似。不同的是向类文件对象写数据的时候，数据长度只有到达参数max_size指定大小时，或者调用类文件对象的fileno()方法，数据才会真正写入到磁盘的临时文件中。</p>
+        <h2 id="Liunx进程的启动与终止"><a href="#Liunx进程的启动与终止" class="headerlink" title="Liunx进程的启动与终止"></a>Liunx进程的启动与终止</h2><p>在使用subprocess创建进程时需要将所有进程设置为一个进程组<br>preexec_fn：只在 Unix 平台下有效，用于指定一个可执行对象（callable object），它将在子进程运行之前被调用<br>close_fds：在执行子进程之前,将关闭除0、1和2以外的所有文件描述符；表示子进程将不会继承父进程的输入、输出、错误管道</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import subprocess, os, signal, time</span><br><span class="line"></span><br><span class="line">process_pid = None</span><br><span class="line"></span><br><span class="line"># linux</span><br><span class="line">def start_process():</span><br><span class="line">    command = &quot;adb shell&quot;</span><br><span class="line">    p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, \</span><br><span class="line">        preexec_fn=os.setpgrp, close_fds=True)</span><br><span class="line">    print(&quot;adb shell&quot;)</span><br><span class="line">    global process_pid</span><br><span class="line">    process_pid = p.pid</span><br><span class="line">    print(process_pid)</span><br><span class="line"></span><br><span class="line">start_process()</span><br><span class="line">time.sleep(5)</span><br><span class="line">os.killpg(process_pid, signal.SIGKILL)</span><br></pre></td></tr></table></figure>
+<h2 id="Windows进程的启动与终止"><a href="#Windows进程的启动与终止" class="headerlink" title="Windows进程的启动与终止"></a>Windows进程的启动与终止</h2><p>由于preexec_fn不适用于Windows系统，因此采取另外方式</p>
+<h3 id="方式一："><a href="#方式一：" class="headerlink" title="方式一："></a>方式一：</h3><p>使用psutils遍历进程ID的子进程依次杀，此方法也适用于Linux系统</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 进程开启</span><br><span class="line">import subprocess, psutil, time</span><br><span class="line">command = &quot;adb shell&quot;</span><br><span class="line">process = subprocess.Popen(command, shell=True, \</span><br><span class="line">    stdout=subprocess.PIPE, stderr=subprocess.PIPE)</span><br><span class="line">process_id = process.pid</span><br><span class="line">print(process_id)</span><br><span class="line">print(&quot;adb shell&quot;)</span><br><span class="line"></span><br><span class="line"># 进程终止</span><br><span class="line">def kill(proc_pid):</span><br><span class="line">    parent_proc = psutil.Process(proc_pid)</span><br><span class="line">    # recursive=True：获取所有的父子进程</span><br><span class="line">    for child_proc in parent_proc.children(recursive=True):</span><br><span class="line">        child_proc.kill()</span><br><span class="line">    parent_proc.kill()</span><br><span class="line">time.sleep(5)</span><br><span class="line"></span><br><span class="line">kill(process_id)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="方式二："><a href="#方式二：" class="headerlink" title="方式二："></a>方式二：</h3><p>直接使用Windows的taskkill -t:进程树，-f:强制杀死</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">taskkill /pid process_id -t -f</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -244,13 +242,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/05/29/python%E5%9C%A8%E7%AE%A1%E9%81%93%E4%B8%AD%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/" rel="prev" title="python在管道中执行命令">
-      <i class="fa fa-chevron-left"></i> python在管道中执行命令
+    <a href="/2022/05/29/python-socket%E7%90%86%E8%A7%A3/" rel="prev" title="python socket理解">
+      <i class="fa fa-chevron-left"></i> python socket理解
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/05/29/python-socket%E7%90%86%E8%A7%A3/" rel="next" title="python socket理解">
-      python socket理解 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -309,7 +304,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#python%E5%B0%86%E5%91%BD%E4%BB%A4%E8%BE%93%E5%87%BA%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">python将命令输出写入文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python%E5%B0%86%E5%91%BD%E4%BB%A4%E8%BE%93%E5%87%BA%E5%86%99%E5%85%A5%E4%B8%B4%E6%97%B6%E6%96%87%E4%BB%B6%E6%88%96%E8%80%85%E7%BC%93%E5%AD%98"><span class="nav-number">2.</span> <span class="nav-text">python将命令输出写入临时文件或者缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tempfile%E4%B8%8D%E5%90%8C%E4%B8%B4%E6%97%B6%E6%96%87%E4%BB%B6%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.</span> <span class="nav-text">tempfile不同临时文件的区别</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Liunx%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%90%AF%E5%8A%A8%E4%B8%8E%E7%BB%88%E6%AD%A2"><span class="nav-number">1.</span> <span class="nav-text">Liunx进程的启动与终止</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%90%AF%E5%8A%A8%E4%B8%8E%E7%BB%88%E6%AD%A2"><span class="nav-number">2.</span> <span class="nav-text">Windows进程的启动与终止</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F%E4%B8%80%EF%BC%9A"><span class="nav-number">2.1.</span> <span class="nav-text">方式一：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F%E4%BA%8C%EF%BC%9A"><span class="nav-number">2.2.</span> <span class="nav-text">方式二：</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
